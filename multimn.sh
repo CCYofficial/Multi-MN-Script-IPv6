@@ -4,7 +4,7 @@ if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"
    exit 1
 fi
-OS_version=$(cat /etc/lsb-release | grep -c bionic)
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
@@ -29,44 +29,22 @@ then
   apt update
   sudo add-apt-repository ppa:bitcoin/bitcoin -y && sudo apt-get update && sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
   
-  ## Checking for Swap
-  
-  if [ ! -f /var/swap.img ]
-  then
-  echo -e "${RED}Creating swap. This may take a while.${NC}"
-  dd if=/dev/zero of=/var/swap.img bs=2048 count=1M
-  chmod 600 /var/swap.img
-  mkswap /var/swap.img 
-  swapon /var/swap.img 
-  free -m
-  echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
-  fi
-  
-  ufw allow ssh/tcp
-  ufw limit ssh/tcp
-  ufw logging on
-  echo "y" | ufw enable 
-  ufw allow 5535
-  echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
-  echo ""
-  cd
-  sysctl vm.swappiness=30
-  sysctl vm.vfs_cache_pressure=200
-  echo 'vm.swappiness=30' | tee -a /etc/sysctl.conf
-  echo 'vm.vfs_cache_pressure=200' | tee -a /etc/sysctl.conf
-  touch /root/bin/dep
+ 
 fi
 
 ## Constants
+CURRENTPROTOCOL=72105
+version="v1.1.0.0"
+link="https://github.com/CCYofficial/CCY/releases/download/1.1.0.0/cryptocurrency.ubuntu16.04.zip"
 
+OS_version=$(cat /etc/lsb-release | grep -c bionic)
 IP4COUNT=$(find /root/.cryptocurrency_* -maxdepth 0 -type d | wc -l)
 IP6COUNT=$(crontab -l -u root | wc -l)
 DELETED="$(cat /root/bin/deleted | wc -l)"
 ALIASES="$(find /root/.cryptocurrency_* -maxdepth 0 -type d | cut -c22-)"
 face="$(lshw -C network | grep "logical name:" | sed -e 's/logical name:/logical name: /g' | awk '{print $3}' | head -n1)"
 IP4=$(curl -s4 api.ipify.org)
-version=$(curl https://raw.githubusercontent.com/CCYofficial/Multi-MN-Script-IPv6/master/current)
-link=$(curl https://raw.githubusercontent.com/CCYofficial/Multi-MN-Script-IPv6/master/download)
+
 PORT=5535
 RPCPORTT=5536
 gateway1=$(/sbin/route -A inet6 | grep -v ^fe80 | grep -v ^ff00 | grep -w "$face")
