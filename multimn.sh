@@ -103,6 +103,7 @@ StartLimitBurst=5
  [Install]
 WantedBy=multi-user.target
 EOF
+  sleep 2
   systemctl daemon-reload
   sleep 2
   echo "sleep 10" >> /root/bin/start_nodes.sh
