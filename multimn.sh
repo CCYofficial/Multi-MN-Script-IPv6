@@ -371,15 +371,13 @@ RPCPORT=$(($RPCPORTT+$COUNTER))
   echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> cryptocurrency.conf_TEMP
   echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> cryptocurrency.conf_TEMP
   echo "rpcallowip=127.0.0.1" >> cryptocurrency.conf_TEMP
-  echo "rpcport=$RPCPORT" >> cryptocurrency.conf_TEMP
-  echo "listen=1" >> cryptocurrency.conf_TEMP
+  echo "rpcport="`shuf -i 6000-50000 -n 1` >> cryptocurrency.conf_TEMP
+  echo "listen=0" >> cryptocurrency.conf_TEMP
   echo "server=1" >> cryptocurrency.conf_TEMP
   echo "daemon=1" >> cryptocurrency.conf_TEMP
   echo "logtimestamps=1" >> cryptocurrency.conf_TEMP
   echo "maxconnections=$MAXC" >> cryptocurrency.conf_TEMP
   echo "masternode=1" >> cryptocurrency.conf_TEMP
-  echo "" >> cryptocurrency.conf_TEMP
-  echo "" >> cryptocurrency.conf_TEMP
   echo "bind=$IP4:$PORT" >> cryptocurrency.conf_TEMP
   echo "externalip=$IP4" >> cryptocurrency.conf_TEMP
   echo "masternodeaddr=$IP4:$PORT" >> cryptocurrency.conf_TEMP
@@ -447,8 +445,8 @@ do
   echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> cryptocurrency.conf_TEMP
   echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> cryptocurrency.conf_TEMP
   echo "rpcallowip=127.0.0.1" >> cryptocurrency.conf_TEMP
-  echo "rpcport=$RPCPORT" >> cryptocurrency.conf_TEMP
-  echo "listen=1" >> cryptocurrency.conf_TEMP
+  echo "rpcport="`shuf -i 6000-50000 -n 1` >> cryptocurrency.conf_TEMP
+  echo "listen=0" >> cryptocurrency.conf_TEMP
   echo "server=1" >> cryptocurrency.conf_TEMP
   echo "daemon=1" >> cryptocurrency.conf_TEMP
   echo "logtimestamps=1" >> cryptocurrency.conf_TEMP
