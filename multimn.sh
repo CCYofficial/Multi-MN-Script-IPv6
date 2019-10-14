@@ -27,7 +27,7 @@ then
   apt update 
   apt -y upgrade
   apt update
-  apt install -y unzip nano build-essential libtool bsdmainutils autotools-dev autoconf pkg-config automake python3 libssl-dev libgmp-dev libzmq3-dev libevent-dev libboost-all-dev software-properties-common -y && sudo add-apt-repository ppa:bitcoin/bitcoin -y && sudo apt-get update && sudo apt-get install libdb4.8-dev libdb4.8++-dev libminiupnpc-dev libevent-2.0-5 libevent-pthreads-2.0-5 libevent-dev
+  sudo add-apt-repository ppa:bitcoin/bitcoin -y && sudo apt-get update && sudo apt-get install libdb4.8-dev libdb4.8++-dev
   
   ## Checking for Swap
   
