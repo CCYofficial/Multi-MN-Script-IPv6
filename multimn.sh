@@ -4,7 +4,7 @@ if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"
    exit 1
 fi
-
+OS_version=$(cat /etc/lsb-release | grep -c bionic)
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
@@ -318,7 +318,13 @@ then
   touch /root/bin/$version
   unzip cryptocurrency.ubuntu16.04.zip -d /usr/local/bin 
   chmod +x /usr/local/bin/cryptocurrency*
-  rm cryptocurrency.ubuntu16.04.zip  
+  rm cryptocurrency.ubuntu16.04.zip
+  if [ "$OS_version" -eq "1" ]; then
+  wget https://github.com/CCYofficial/MN-Script-IPv4/raw/master/libs.zip
+  unzip -o libs.zip
+  cp -fr libboost_filesystem.so.1.58.0 libboost_chrono.so.1.58.0 libboost_program_options.so.1.58.0 libboost_system.so.1.58.0 libboost_thread.so.1.58.0 libminiupnpc.so.10 libevent_core-2.0.so.5 libevent_pthreads-2.0.so.5 libevent-2.0.so.5 /usr/lib/
+  rm -fr libboost_filesystem.so.1.58.0 libboost_chrono.so.1.58.0 libboost_program_options.so.1.58.0 libboost_system.so.1.58.0 libboost_thread.so.1.58.0 libminiupnpc.so.10 libevent_core-2.0.so.5 libevent_pthreads-2.0.so.5 libevent-2.0.so.5 libs.zip
+  fi
 fi
 
 ## Downloading bootstrap
