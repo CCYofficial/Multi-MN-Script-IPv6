@@ -136,8 +136,8 @@ then
 echo -e "${GREEN}Please wait, updating wallet.${NC}"
 sleep 1
 
-mnalias=$(find /root/.cryptocurrency_* -maxdepth 0 -type d | cut -c22- | head -n 1)
-PROTOCOL=$(cryptocurrency-cli -datadir=/root/.cryptocurrency_${mnalias} getinfo | grep "protocolversion" | sed 's/[^0-9]*//g')
+mnalias=$(find /root/.cryptocurrency* -maxdepth 0 -type d | cut -c22- | head -n 1)
+PROTOCOL=$(cryptocurrency-cli -datadir=/root/.cryptocurrency${mnalias} getinfo | grep "protocolversion" | sed 's/[^0-9]*//g')
 
 if [ $PROTOCOL != 71004 ]
 then
