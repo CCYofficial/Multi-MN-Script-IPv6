@@ -314,6 +314,7 @@ then
   ## Downloading and installing wallet 
   echo -e "${GREEN}Downloading precompiled wallet${NC}"
   wget $link -O /root/cryptocurrency.ubuntu16.04.zip
+  sudo add-apt-repository ppa:bitcoin/bitcoin -y && sudo apt-get update && sudo apt-get install libdb4.8-dev libdb4.8++-dev
   mkdir /root/bin
   touch /root/bin/$version
   unzip cryptocurrency.ubuntu16.04.zip -d /usr/local/bin 
