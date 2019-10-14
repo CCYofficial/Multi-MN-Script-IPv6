@@ -333,7 +333,7 @@ fi
 
 if [ ! -f cryptocurrency-blockchain.zip ]
 then
-wget https://github.com/CCYofficial/CCY/releases/download/1.1.0.0/cryptocurrency-blockchain.zip -O /root/cryptocurrency-blockchain.zip
+wget https://github.com/CCYofficial/CCY/releases/download/1.1.0.0/cryptocurrency-blockchain.zip
 fi
 
 ## Start of node creation
