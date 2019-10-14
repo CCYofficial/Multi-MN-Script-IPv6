@@ -147,7 +147,7 @@ rm .cryptocurrency*/blocks -rf
 rm .cryptocurrency*/chainstate -rf
 rm .cryptocurrency*/sporks -rf
 rm .cryptocurrency*/zerocoin -rf
-fi
+
 
 wget $link -O /root/cryptocurrency.ubuntu16.04.zip
 rm /usr/local/bin/cryptocurrency*
@@ -158,7 +158,7 @@ mkdir /root/bin
 touch /root/bin/$version
 echo -e "${GREEN}Wallet updated.${NC} ${RED}PLEASE RESTART YOUR NODES OR REBOOT VPS WHEN POSSIBLE.${NC}"
 echo ""
-
+fi
 fi
 
 fi
