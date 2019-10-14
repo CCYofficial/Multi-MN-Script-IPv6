@@ -118,14 +118,14 @@ sleep 1
 mnalias=$(find /root/.cryptocurrency* -maxdepth 0 -type d | cut -c22- | head -n 1)
 PROTOCOL=$(cryptocurrency-cli -datadir=/root/.cryptocurrency${mnalias} getinfo | grep "protocolversion" | sed 's/[^0-9]*//g')
 
-if [ $PROTOCOL != 72105 ]
+if [ $PROTOCOL != $CURRENTPROTOCOL ]
 then
 sed -i 's/22123/5535/g' /root/.cryptocurrency*/cryptocurrency.conf
 rm .cryptocurrency*/blocks -rf
 rm .cryptocurrency*/chainstate -rf
 rm .cryptocurrency*/sporks -rf
 rm .cryptocurrency*/zerocoin -rf
-
+fi
 
 wget $link -O /root/cryptocurrency.ubuntu16.04.zip
 rm /usr/local/bin/cryptocurrency*
@@ -136,7 +136,7 @@ mkdir /root/bin
 touch /root/bin/$version
 echo -e "${GREEN}Wallet updated.${NC} ${RED}PLEASE RESTART YOUR NODES OR REBOOT VPS WHEN POSSIBLE.${NC}"
 echo ""
-fi
+
 fi
 
 fi
