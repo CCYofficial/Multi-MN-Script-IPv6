@@ -1,1 +1,2 @@
-# Multi-MN-Script-IPv6
+Cryptocurrency Automatic Masternode script.
+
