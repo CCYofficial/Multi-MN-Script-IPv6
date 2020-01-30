@@ -33,9 +33,9 @@ then
 fi
 
 ## Constants
-CURRENTPROTOCOL=72105
-version="v1.1.0.0"
-link="https://github.com/CCYofficial/CCY/releases/download/1.1.0.0/cryptocurrency.ubuntu16.04.zip"
+CURRENTPROTOCOL=72106
+version="v1.2.0.0"
+link="https://github.com/CCYofficial/CCY/releases/download/1.2.0.0/cryptocurrency.ubuntu16.04.zip"
 
 OS_version=$(cat /etc/lsb-release | grep -c bionic)
 IP4COUNT=$(find /root/.cryptocurrency_* -maxdepth 0 -type d | wc -l)
@@ -311,7 +311,7 @@ fi
 
 if [ ! -f cryptocurrency-bootstrap.zip ]
 then
-wget https://github.com/CCYofficial/CCY/releases/download/1.1.0.0/cryptocurrency-bootstrap.zip
+wget https://github.com/CCYofficial/CCY/releases/download/1.2.0.0/cryptocurrency-bootstrap.zip
 fi
 
 ## Start of node creation
