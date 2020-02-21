@@ -129,6 +129,7 @@ fi
 
 wget $link -O /root/cryptocurrency.ubuntu16.04.zip
 rm /usr/local/bin/cryptocurrency*
+sudo apt-get install unzip
 unzip cryptocurrency.ubuntu16.04.zip -d /usr/local/bin 
 chmod +x /usr/local/bin/cryptocurrency*
 rm cryptocurrency.ubuntu16.04.zip
@@ -192,7 +193,7 @@ then
 
 ## Installing pre-requisites
 
-apt install -y zip unzip bc curl nano lshw ufw gawk libdb++-dev git zip automake software-properties-common unzip build-essential libtool autotools-dev autoconf pkg-config libssl-dev libcrypto++-dev libevent-dev libminiupnpc-dev libgmp-dev libboost-all-dev devscripts libsodium-dev libprotobuf-dev protobuf-compiler libcrypto++-dev libminiupnpc-dev gcc-5 g++-5 --auto-remove
+apt install -y zip unzip bc curl nano lshw ufw gawk libdb++-dev git zip automake software-properties-common build-essential libtool autotools-dev autoconf pkg-config libssl-dev libcrypto++-dev libevent-dev libminiupnpc-dev libgmp-dev libboost-all-dev devscripts libsodium-dev libprotobuf-dev protobuf-compiler libcrypto++-dev libminiupnpc-dev gcc-5 g++-5 --auto-remove
 thr="$(nproc)"
 
 ## Compatibility issues
