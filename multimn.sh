@@ -35,7 +35,7 @@ fi
 ## Constants
 CURRENTPROTOCOL=72106
 version="v1.2.0.0"
-link="https://github.com/CCYofficial/CCY/releases/latest/download/cryptocurrency.ubuntu16.04.zip"
+link="https://github.com/CCYofficial/CCY/releases/latest/download/cryptocurrency.linux.zip"
 
 OS_version=$(cat /etc/lsb-release | grep -c bionic)
 IP4COUNT=$(find /root/.cryptocurrency_* -maxdepth 0 -type d | wc -l)
@@ -127,12 +127,12 @@ rm .cryptocurrency*/sporks -rf
 rm .cryptocurrency*/zerocoin -rf
 fi
 
-wget $link -O /root/cryptocurrency.ubuntu16.04.zip
+wget $link -O /root/cryptocurrency.linux.zip
 rm /usr/local/bin/cryptocurrency*
 sudo apt-get install unzip
-unzip cryptocurrency.ubuntu16.04.zip -d /usr/local/bin 
+unzip cryptocurrency.linux.zip -d /usr/local/bin 
 chmod +x /usr/local/bin/cryptocurrency*
-rm cryptocurrency.ubuntu16.04.zip
+rm cryptocurrency.linux.zip
 mkdir /root/bin
 touch /root/bin/$version
 echo -e "${GREEN}Wallet updated.${NC} ${RED}PLEASE RESTART YOUR NODES OR REBOOT VPS WHEN POSSIBLE.${NC}"
@@ -293,13 +293,13 @@ if [ ! -f "/usr/local/bin/cryptocurrencyd" ]
 then
   ## Downloading and installing wallet 
   echo -e "${GREEN}Downloading precompiled wallet${NC}"
-  wget $link -O /root/cryptocurrency.ubuntu16.04.zip
+  wget $link -O /root/cryptocurrency.linux.zip
   sudo add-apt-repository ppa:bitcoin/bitcoin -y && sudo apt-get update && sudo apt-get install unzip libdb4.8-dev libdb4.8++-dev -y
   mkdir /root/bin
   touch /root/bin/$version
-  unzip cryptocurrency.ubuntu16.04.zip -d /usr/local/bin 
+  unzip cryptocurrency.linux.zip -d /usr/local/bin 
   chmod +x /usr/local/bin/cryptocurrency*
-  rm cryptocurrency.ubuntu16.04.zip
+  rm cryptocurrency.linux.zip
   if [ "$OS_version" -eq "1" ]; then
   wget https://github.com/CCYofficial/MN-Script-IPv4/raw/master/libs.zip
   unzip -o libs.zip
